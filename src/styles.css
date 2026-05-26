@@ -18,6 +18,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   min-width: 320px;
@@ -115,7 +119,7 @@ a {
 }
 
 .nav a.active {
-  background: var(--cocoa);
+  background: #151515;
   color: var(--paper);
 }
 
@@ -210,6 +214,11 @@ a {
   justify-content: center;
   min-height: 48px;
   padding: 13px 20px;
+  transition: transform 0.22s ease, background 0.22s ease, color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
 }
 
 .button.primary {
@@ -221,34 +230,6 @@ a {
   background: rgba(246, 239, 231, 0.18);
   color: var(--paper);
   outline: 1px solid rgba(246, 239, 231, 0.42);
-}
-
-.mood-dial {
-  align-items: center;
-  bottom: 42px;
-  display: flex;
-  gap: 8px;
-  position: absolute;
-  right: clamp(22px, 6vw, 72px);
-  z-index: 1;
-}
-
-.mood-dial span {
-  background: rgba(246, 239, 231, 0.76);
-  border-radius: 999px;
-  color: var(--ink);
-  font-size: 13px;
-  font-weight: 800;
-  opacity: 0.6;
-  padding: 9px 13px;
-  transition: 0.28s ease;
-}
-
-.mood-dial span.active {
-  background: var(--cocoa);
-  color: var(--paper);
-  opacity: 1;
-  transform: translateY(-8px);
 }
 
 .inspiration-section,
@@ -528,11 +509,97 @@ a {
   gap: 42px;
 }
 
+.about-home {
+  background: var(--paper);
+  min-height: auto;
+  padding: clamp(76px, 9vw, 118px) clamp(22px, 6vw, 72px) clamp(52px, 7vw, 82px);
+}
+
 .about-copy {
   display: grid;
   gap: 22px;
   grid-template-columns: 1fr 1fr;
   max-width: 980px;
+}
+
+.home-projects {
+  background: var(--paper);
+  display: grid;
+  gap: 26px;
+  padding: clamp(52px, 7vw, 86px) clamp(22px, 6vw, 72px) clamp(76px, 9vw, 118px);
+}
+
+.home-projects-heading {
+  display: grid;
+  gap: 12px;
+  max-width: 980px;
+}
+
+.home-projects-heading h2 {
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 5vw, 72px);
+  font-weight: 500;
+  line-height: 0.98;
+  margin: 0;
+}
+
+.home-project-list {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.home-project-card {
+  align-items: flex-start;
+  aspect-ratio: 3 / 4;
+  background-position: center;
+  background-size: cover;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 18px 48px rgba(63, 36, 29, 0.1);
+  color: var(--paper);
+  cursor: zoom-in;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  min-height: 360px;
+  overflow: hidden;
+  padding: 22px;
+  position: relative;
+  text-align: left;
+}
+
+.home-project-card::before {
+  background: linear-gradient(0deg, rgba(18, 18, 18, 0.64), rgba(18, 18, 18, 0.08) 68%);
+  content: '';
+  inset: 0;
+  position: absolute;
+}
+
+.home-project-card span,
+.home-project-card h3 {
+  position: relative;
+}
+
+.home-project-card span {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.home-project-card h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 1.8vw, 34px);
+  font-weight: 500;
+  line-height: 1;
+  margin: 0;
+  max-width: 100%;
+  overflow-wrap: normal;
+  white-space: nowrap;
 }
 
 .stat-row {
@@ -601,6 +668,13 @@ a {
   overflow: hidden;
   padding: 32px;
   position: relative;
+  cursor: zoom-in;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.featured-project:hover {
+  box-shadow: 0 22px 58px rgba(63, 36, 29, 0.16);
+  transform: translateY(-2px);
 }
 
 .featured-project::before {
@@ -637,6 +711,15 @@ a {
   margin: 10px 0 0;
 }
 
+.featured-project small {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  margin-top: 18px;
+  text-transform: uppercase;
+}
+
 .project-list {
   display: grid;
   gap: 12px;
@@ -650,15 +733,19 @@ a {
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: 22px;
-  justify-content: space-between;
-  min-height: 160px;
+  justify-content: center;
+  min-height: 104px;
   padding: 20px;
   text-align: left;
+  transition: transform 0.22s ease, background 0.22s ease, color 0.22s ease;
+}
+
+.project-tab:hover {
+  transform: translateY(-2px);
 }
 
 .project-tab.active {
-  background: var(--cocoa);
+  background: #151515;
   color: var(--paper);
 }
 
@@ -666,17 +753,6 @@ a {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 28px;
   line-height: 1;
-}
-
-.swatches {
-  display: flex;
-  gap: 8px;
-}
-
-.swatches i {
-  border-radius: 50%;
-  height: 28px;
-  width: 28px;
 }
 
 .carousel-controls {
@@ -745,9 +821,10 @@ a {
 }
 
 .contact-form {
-  background: linear-gradient(135deg, var(--cocoa), var(--clay));
+  background: #fffaf4;
+  border: 1px solid rgba(21, 21, 21, 0.1);
   border-radius: 8px;
-  color: var(--paper);
+  color: #151515;
   display: grid;
   gap: 16px;
   padding: clamp(22px, 4vw, 36px);
@@ -765,12 +842,17 @@ a {
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
-  background: rgba(246, 239, 231, 0.1);
-  border: 1px solid rgba(246, 239, 231, 0.22);
+  background: rgba(225, 212, 194, 0.34);
+  border: 1px solid rgba(21, 21, 21, 0.2);
   border-radius: 8px;
-  color: var(--paper);
+  color: #151515;
   min-height: 48px;
   padding: 13px 14px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(21, 21, 21, 0.52);
 }
 
 .contact-form textarea {
@@ -778,17 +860,18 @@ a {
 }
 
 .contact-form option {
-  color: var(--ink);
+  color: #151515;
 }
 
 .contact-card {
   align-self: start;
-  background: var(--plaster);
+  background: #fffaf4;
+  border-color: rgba(21, 21, 21, 0.1);
 }
 
 .contact-card p {
   align-items: center;
-  color: var(--ink);
+  color: #151515;
   display: flex;
   gap: 10px;
   margin: 0 0 18px;
@@ -826,6 +909,7 @@ a {
   .inspiration-heading,
   .about-copy,
   .project-showcase,
+  .home-projects-heading,
   .contact-layout {
     grid-template-columns: 1fr;
   }
@@ -845,13 +929,6 @@ a {
   .inspiration-tile:nth-child(4) {
     grid-column: span 1;
     grid-row: span 1;
-  }
-
-  .mood-dial {
-    bottom: 18px;
-    left: 22px;
-    right: auto;
-    flex-wrap: wrap;
   }
 
   .hero {
@@ -878,5 +955,9 @@ a {
   .featured-project {
     min-height: 440px;
     padding: 22px;
+  }
+
+  .home-project-card {
+    min-height: 300px;
   }
 }

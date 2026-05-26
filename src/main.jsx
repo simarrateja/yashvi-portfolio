@@ -28,9 +28,17 @@ const projects = [
     details: 'The project integrates living, working, and social functions within a cohesive framework, using transitional spaces and interactive zones to support both engagement and solitude.',
     gallery: [
       '/images/projects/live-work-connect/facade.jpeg',
+      '/images/projects/live-work-connect/dining.jpeg',
       '/images/projects/live-work-connect/lounge.jpeg',
+      '/images/projects/live-work-connect/community.jpeg',
+      '/images/projects/live-work-connect/elevation.jpeg',
       '/images/projects/live-work-connect/kitchen.jpeg',
+      '/images/projects/live-work-connect/room.jpeg',
       '/images/projects/live-work-connect/sleep-work.jpeg',
+      '/images/projects/live-work-connect/plan-12.png',
+      '/images/projects/live-work-connect/plan-13.png',
+      '/images/projects/live-work-connect/plan-14.png',
+      '/images/projects/live-work-connect/concept-board.png',
     ],
   },
   {
@@ -41,12 +49,15 @@ const projects = [
     palette: ['#f0652f', '#2a2b29', '#c7c1b5'],
     image: 'linear-gradient(0deg, rgba(18, 18, 16, .28), rgba(18, 18, 16, .08)), url("/images/projects/studio4/hero.jpeg")',
     summary: 'A modern gym designed from floor planning and zoning through RCP detailing and 3D visualization, with a functional yet energetic spatial language.',
-    details: 'Neutral grey and black finishes are sharpened with bold orange accents to express strength, energy, and movement while keeping the space industrial and contemporary.',
+    details: 'Matte black finishes are sharpened with bold orange accents to express strength, energy, and movement while keeping the space industrial and contemporary.',
     gallery: [
       '/images/projects/studio4/hero.jpeg',
       '/images/projects/studio4/studio.jpeg',
       '/images/projects/studio4/equipment.jpeg',
       '/images/projects/studio4/reception.jpeg',
+      '/images/projects/studio4/training.jpeg',
+      '/images/projects/studio4/floor-plan.png',
+      '/images/projects/studio4/palette.png',
     ],
   },
   {
@@ -60,6 +71,7 @@ const projects = [
     details: 'The loft-style bed, slide, decorative lighting, and study zones bring comfort, function, and imagination together in a modern kids space.',
     gallery: [
       '/images/projects/dream-nest/hero.jpeg',
+      '/images/projects/dream-nest/palette.jpg',
       '/images/projects/dream-nest/study.jpeg',
       '/images/projects/dream-nest/loft.jpeg',
       '/images/projects/dream-nest/bed.jpeg',
@@ -93,54 +105,20 @@ const projects = [
       '/images/projects/raadhi/hero.jpeg',
       '/images/projects/raadhi/display.jpeg',
       '/images/projects/raadhi/identity.png',
+      '/images/projects/raadhi/img-7675.jpg',
+      '/images/projects/raadhi/img-7677.jpg',
+      '/images/projects/raadhi/img-7683.jpg',
+      '/images/projects/raadhi/img-7695.jpg',
+      '/images/projects/raadhi/img-7697.jpg',
+      '/images/projects/raadhi/img-7699.jpg',
     ],
   },
 ];
 
 const navItems = [
   { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
   { to: '/projects', label: 'Projects' },
   { to: '/contact', label: 'Contact' },
-];
-
-const inspirationTiles = [
-  {
-    title: 'DreamNest',
-    tag: 'Kids Bedroom',
-    projectTitle: 'DreamNest',
-    image: 'linear-gradient(0deg, rgba(63, 36, 29, 0.22), rgba(63, 36, 29, 0.04)), url("/images/projects/dream-nest/bed.jpeg")',
-  },
-  {
-    title: 'Studio4',
-    tag: 'Fitness',
-    projectTitle: 'Studio4',
-    image: 'linear-gradient(0deg, rgba(63, 36, 29, 0.28), rgba(63, 36, 29, 0.08)), url("/images/projects/studio4/studio.jpeg")',
-  },
-  {
-    title: 'Live.Work.Connect',
-    tag: 'Co-living',
-    projectTitle: 'Live.Work.Connect',
-    image: 'linear-gradient(0deg, rgba(63, 36, 29, 0.32), rgba(63, 36, 29, 0.06)), url("/images/projects/live-work-connect/lounge.jpeg")',
-  },
-  {
-    title: 'Raadhi',
-    tag: 'Boutique',
-    projectTitle: 'Raadhi',
-    image: 'linear-gradient(0deg, rgba(63, 36, 29, 0.28), rgba(63, 36, 29, 0.08)), url("/images/projects/raadhi/display.jpeg")',
-  },
-  {
-    title: 'Timeless Touch',
-    tag: 'Bedroom',
-    projectTitle: 'Timeless Touch',
-    image: 'linear-gradient(0deg, rgba(63, 36, 29, 0.32), rgba(63, 36, 29, 0.08)), url("/images/projects/timeless-touch/hero.jpg")',
-  },
-  {
-    title: 'Live.Work.Connect',
-    tag: 'Work Pods',
-    projectTitle: 'Live.Work.Connect',
-    image: 'linear-gradient(0deg, rgba(63, 36, 29, 0.28), rgba(63, 36, 29, 0.08)), url("/images/projects/live-work-connect/sleep-work.jpeg")',
-  },
 ];
 
 function App() {
@@ -164,7 +142,7 @@ function App() {
           <AnimatePresence mode="wait">
             <Routes>
               <Route path="/" element={<PageWrap keyName="home"><Home /></PageWrap>} />
-              <Route path="/about" element={<PageWrap keyName="about"><About /></PageWrap>} />
+              <Route path="/about" element={<PageWrap keyName="home"><Home /></PageWrap>} />
               <Route path="/projects" element={<PageWrap keyName="projects"><Projects /></PageWrap>} />
               <Route path="/contact" element={<PageWrap keyName="contact"><Contact /></PageWrap>} />
             </Routes>
@@ -233,34 +211,9 @@ function Home() {
             </NavLink>
           </div>
         </div>
-        <MoodDial />
       </section>
-      <section className="inspiration-section">
-        <div className="inspiration-heading">
-          <span className="section-kicker">Design Inspiration Gallery</span>
-          <h2>Project moments from residential, retail, fitness, and co-living spaces.</h2>
-          <p>
-            A quick visual pass across Yashvi's portfolio work, from playful bedroom renders to boutique displays and energetic fitness interiors.
-          </p>
-        </div>
-        <div className="inspiration-gallery">
-          {inspirationTiles.map((tile, index) => (
-            <motion.button
-              className="inspiration-tile"
-              key={`${tile.title}-${tile.tag}`}
-              type="button"
-              onClick={() => setViewerProject(projects.find((project) => project.title === tile.projectTitle))}
-              style={{ backgroundImage: tile.image }}
-              whileHover={{ y: -10, scale: 1.015 }}
-              transition={{ duration: 0.24, ease: 'easeOut' }}
-              aria-label={`Open ${tile.projectTitle} photos`}
-            >
-              <span>{String(index + 1).padStart(2, '0')} / {tile.tag}</span>
-              <h3>{tile.title}</h3>
-            </motion.button>
-          ))}
-        </div>
-      </section>
+      <About isHome />
+      <HomeProjects onOpenProject={setViewerProject} />
       <ProjectPhotoViewer project={viewerProject} onClose={() => setViewerProject(null)} />
     </>
   );
@@ -346,27 +299,9 @@ function ProjectPhotoViewer({ project, onClose }) {
   );
 }
 
-function MoodDial() {
-  const words = ['vibrant', 'tactile', 'balanced', 'warm'];
-  const [active, setActive] = useState(0);
-
-  useEffect(() => {
-    const timer = window.setInterval(() => setActive((index) => (index + 1) % words.length), 1700);
-    return () => window.clearInterval(timer);
-  }, [words.length]);
-
+function About({ isHome = false }) {
   return (
-    <div className="mood-dial" aria-label="Design mood">
-      {words.map((word, index) => (
-        <span key={word} className={active === index ? 'active' : ''}>{word}</span>
-      ))}
-    </div>
-  );
-}
-
-function About() {
-  return (
-    <section className="page-section about-layout">
+    <section className={isHome ? 'about-home about-layout' : 'page-section about-layout'}>
       <div className="page-heading">
         <span className="section-kicker">About Me</span>
         <h1>Designing interiors that feel expressive, useful, and personal.</h1>
@@ -378,22 +313,33 @@ function About() {
         <p>
           Her process begins with observation: how people enter, pause, gather, work, and unwind. From there, she develops concepts through moodboards, sketches, material combinations, and detailed layouts.
         </p>
-        <div className="stat-row">
-          <span><strong>12+</strong> concept boards</span>
-          <span><strong>6</strong> spatial typologies</span>
-          <span><strong>4</strong> material systems</span>
-        </div>
       </div>
-      <div className="process-strip">
-        {['Research', 'Concept', 'Material', 'Layout', 'Styling'].map((step, index) => (
-          <motion.div
-            className="process-step"
-            key={step}
-            whileHover={{ y: -8, rotate: index % 2 ? 1 : -1 }}
+    </section>
+  );
+}
+
+function HomeProjects({ onOpenProject }) {
+  return (
+    <section className="home-projects">
+      <div className="home-projects-heading">
+        <span className="section-kicker">Projects</span>
+        <h2>Selected interiors and spatial stories.</h2>
+      </div>
+      <div className="home-project-list">
+        {projects.map((project) => (
+          <motion.button
+            className="home-project-card"
+            key={project.title}
+            type="button"
+            onClick={() => onOpenProject(project)}
+            style={{ backgroundImage: project.image }}
+            whileHover={{ y: -6 }}
+            transition={{ duration: 0.22, ease: 'easeOut' }}
+            aria-label={`Open ${project.title} photos`}
           >
-            <span>{String(index + 1).padStart(2, '0')}</span>
-            {step}
-          </motion.div>
+            <span>{project.type} / {project.location}</span>
+            <h3>{project.title}</h3>
+          </motion.button>
         ))}
       </div>
     </section>
@@ -403,6 +349,7 @@ function About() {
 function Projects() {
   const [active, setActive] = useState(projects[0]);
   const [imageIndex, setImageIndex] = useState(0);
+  const [viewerProject, setViewerProject] = useState(null);
   const activeProject = useMemo(() => active, [active]);
   const activeImage = activeProject.gallery[imageIndex] ?? activeProject.gallery[0];
 
@@ -416,6 +363,8 @@ function Projects() {
       return (current + direction + total) % total;
     });
   };
+
+  const openActiveProject = () => setViewerProject(activeProject);
 
   return (
     <section className="page-section">
@@ -432,10 +381,16 @@ function Projects() {
           key={`${activeProject.title}-${activeImage}`}
           initial={{ opacity: 0.5, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
+          role="button"
+          tabIndex={0}
+          onClick={openActiveProject}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' || event.key === ' ') openActiveProject();
+          }}
           style={{ backgroundImage: `linear-gradient(0deg, rgba(30, 20, 16, .44), rgba(30, 20, 16, .08)), url("${activeImage}")` }}
         >
           {activeProject.gallery.length > 1 && (
-            <div className="carousel-controls" aria-label={`${activeProject.title} image carousel`}>
+            <div className="carousel-controls" aria-label={`${activeProject.title} image carousel`} onClick={(event) => event.stopPropagation()}>
               <button type="button" onClick={() => changeImage(-1)} aria-label="Previous project image">
                 <ChevronLeft size={22} />
               </button>
@@ -460,6 +415,7 @@ function Projects() {
             <h2>{activeProject.title}</h2>
             <p>{activeProject.summary}</p>
             <p>{activeProject.details}</p>
+            <small>Click image to open photos</small>
           </div>
         </motion.div>
         <div className="project-list">
@@ -471,13 +427,11 @@ function Projects() {
               onClick={() => setActive(project)}
             >
               <span>{project.title}</span>
-              <div className="swatches">
-                {project.palette.map((color) => <i key={color} style={{ background: color }} />)}
-              </div>
             </button>
           ))}
         </div>
       </div>
+      <ProjectPhotoViewer project={viewerProject} onClose={() => setViewerProject(null)} />
     </section>
   );
 }
