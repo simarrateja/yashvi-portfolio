@@ -16,6 +16,10 @@ import {
 } from 'lucide-react';
 import './styles.css';
 
+const routerBase = import.meta.env.BASE_URL === '/' ? '/' : import.meta.env.BASE_URL.replace(/\/$/, '');
+const assetPath = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+const projectImage = (path, overlay) => `${overlay}, url("${assetPath(path)}")`;
+
 const projects = [
   {
     title: 'Live.Work.Connect',
@@ -23,22 +27,22 @@ const projects = [
     year: '2026',
     location: 'Urban co-living concept',
     palette: ['#9d8068', '#d8cec2', '#2f4a3c'],
-    image: 'linear-gradient(0deg, rgba(40, 28, 22, .34), rgba(40, 28, 22, .12)), url("/images/projects/live-work-connect/facade.jpeg")',
+    image: projectImage('/images/projects/live-work-connect/facade.jpeg', 'linear-gradient(0deg, rgba(40, 28, 22, .34), rgba(40, 28, 22, .12))'),
     summary: 'A contemporary co-living proposal that balances individuality and community through shared social areas, private retreat zones, and adaptable planning.',
     details: 'The project integrates living, working, and social functions within a cohesive framework, using transitional spaces and interactive zones to support both engagement and solitude.',
     gallery: [
-      '/images/projects/live-work-connect/facade.jpeg',
-      '/images/projects/live-work-connect/dining.jpeg',
-      '/images/projects/live-work-connect/lounge.jpeg',
-      '/images/projects/live-work-connect/community.jpeg',
-      '/images/projects/live-work-connect/elevation.jpeg',
-      '/images/projects/live-work-connect/kitchen.jpeg',
-      '/images/projects/live-work-connect/room.jpeg',
-      '/images/projects/live-work-connect/sleep-work.jpeg',
-      '/images/projects/live-work-connect/plan-12.png',
-      '/images/projects/live-work-connect/plan-13.png',
-      '/images/projects/live-work-connect/plan-14.png',
-      '/images/projects/live-work-connect/concept-board.png',
+      assetPath('/images/projects/live-work-connect/facade.jpeg'),
+      assetPath('/images/projects/live-work-connect/dining.jpeg'),
+      assetPath('/images/projects/live-work-connect/lounge.jpeg'),
+      assetPath('/images/projects/live-work-connect/community.jpeg'),
+      assetPath('/images/projects/live-work-connect/elevation.jpeg'),
+      assetPath('/images/projects/live-work-connect/kitchen.jpeg'),
+      assetPath('/images/projects/live-work-connect/room.jpeg'),
+      assetPath('/images/projects/live-work-connect/sleep-work.jpeg'),
+      assetPath('/images/projects/live-work-connect/plan-12.png'),
+      assetPath('/images/projects/live-work-connect/plan-13.png'),
+      assetPath('/images/projects/live-work-connect/plan-14.png'),
+      assetPath('/images/projects/live-work-connect/concept-board.png'),
     ],
   },
   {
@@ -47,17 +51,17 @@ const projects = [
     year: '2025',
     location: 'Dwarka, Delhi',
     palette: ['#f0652f', '#2a2b29', '#c7c1b5'],
-    image: 'linear-gradient(0deg, rgba(18, 18, 16, .28), rgba(18, 18, 16, .08)), url("/images/projects/studio4/hero.jpeg")',
+    image: projectImage('/images/projects/studio4/hero.jpeg', 'linear-gradient(0deg, rgba(18, 18, 16, .28), rgba(18, 18, 16, .08))'),
     summary: 'A modern gym designed from floor planning and zoning through RCP detailing and 3D visualization, with a functional yet energetic spatial language.',
     details: 'Matte black finishes are sharpened with bold orange accents to express strength, energy, and movement while keeping the space industrial and contemporary.',
     gallery: [
-      '/images/projects/studio4/hero.jpeg',
-      '/images/projects/studio4/studio.jpeg',
-      '/images/projects/studio4/equipment.jpeg',
-      '/images/projects/studio4/reception.jpeg',
-      '/images/projects/studio4/training.jpeg',
-      '/images/projects/studio4/floor-plan.png',
-      '/images/projects/studio4/palette.png',
+      assetPath('/images/projects/studio4/hero.jpeg'),
+      assetPath('/images/projects/studio4/studio.jpeg'),
+      assetPath('/images/projects/studio4/equipment.jpeg'),
+      assetPath('/images/projects/studio4/reception.jpeg'),
+      assetPath('/images/projects/studio4/training.jpeg'),
+      assetPath('/images/projects/studio4/floor-plan.png'),
+      assetPath('/images/projects/studio4/palette.png'),
     ],
   },
   {
@@ -66,15 +70,15 @@ const projects = [
     year: '2025',
     location: 'Dwarka',
     palette: ['#e4aaa6', '#e8d8c2', '#879472'],
-    image: 'linear-gradient(0deg, rgba(68, 44, 34, .2), rgba(68, 44, 34, .04)), url("/images/projects/dream-nest/hero.jpeg")',
+    image: projectImage('/images/projects/dream-nest/hero.jpeg', 'linear-gradient(0deg, rgba(68, 44, 34, .2), rgba(68, 44, 34, .04))'),
     summary: 'Detailed 3D renders for a kids bedroom shaped with soft pastels, warm wood tones, playful curves, and a calm child-friendly atmosphere.',
     details: 'The loft-style bed, slide, decorative lighting, and study zones bring comfort, function, and imagination together in a modern kids space.',
     gallery: [
-      '/images/projects/dream-nest/hero.jpeg',
-      '/images/projects/dream-nest/study.jpeg',
-      '/images/projects/dream-nest/loft.jpeg',
-      '/images/projects/dream-nest/bed.jpeg',
-      '/images/projects/dream-nest/palette.jpg',
+      assetPath('/images/projects/dream-nest/hero.jpeg'),
+      assetPath('/images/projects/dream-nest/study.jpeg'),
+      assetPath('/images/projects/dream-nest/loft.jpeg'),
+      assetPath('/images/projects/dream-nest/bed.jpeg'),
+      assetPath('/images/projects/dream-nest/palette.jpg'),
     ],
   },
   {
@@ -83,13 +87,13 @@ const projects = [
     year: '2025',
     location: 'Janakpuri, New Delhi',
     palette: ['#1f1b18', '#8b735d', '#d3bf9d'],
-    image: 'linear-gradient(0deg, rgba(13, 11, 10, .2), rgba(13, 11, 10, .04)), url("/images/projects/timeless-touch/hero.jpg")',
+    image: projectImage('/images/projects/timeless-touch/hero.jpg', 'linear-gradient(0deg, rgba(13, 11, 10, .2), rgba(13, 11, 10, .04))'),
     summary: 'A serene bedroom renovation with warm wood tones, subtle gold accents, ambient lighting, and a sophisticated neutral palette.',
     details: 'Custom vertical wood paneling, marble, premium textiles, and bespoke furniture transform the room into a polished retreat with contemporary comfort.',
     gallery: [
-      '/images/projects/timeless-touch/hero.jpg',
-      '/images/projects/timeless-touch/media-wall.jpg',
-      '/images/projects/timeless-touch/detail.jpg',
+      assetPath('/images/projects/timeless-touch/hero.jpg'),
+      assetPath('/images/projects/timeless-touch/media-wall.jpg'),
+      assetPath('/images/projects/timeless-touch/detail.jpg'),
     ],
   },
   {
@@ -98,19 +102,19 @@ const projects = [
     year: '2026',
     location: 'Janakpuri, New Delhi',
     palette: ['#4a2029', '#e5cdbb', '#7b5c46'],
-    image: 'linear-gradient(0deg, rgba(48, 18, 24, .18), rgba(48, 18, 24, .04)), url("/images/projects/raadhi/hero.jpeg")',
+    image: projectImage('/images/projects/raadhi/hero.jpeg', 'linear-gradient(0deg, rgba(48, 18, 24, .18), rgba(48, 18, 24, .04))'),
     summary: 'A boutique interior that blends traditional handwork craftsmanship with contemporary elegance and a brand-led color story.',
     details: 'Hand-painted details, intimate display planning, and rich material textures create an immersive retail experience rooted in Indian craft and modern sophistication.',
     gallery: [
-      '/images/projects/raadhi/hero.jpeg',
-      '/images/projects/raadhi/display.jpeg',
-      '/images/projects/raadhi/identity.png',
-      '/images/projects/raadhi/img-7675.jpg',
-      '/images/projects/raadhi/img-7677.jpg',
-      '/images/projects/raadhi/img-7683.jpg',
-      '/images/projects/raadhi/img-7695.jpg',
-      '/images/projects/raadhi/img-7697.jpg',
-      '/images/projects/raadhi/img-7699.jpg',
+      assetPath('/images/projects/raadhi/hero.jpeg'),
+      assetPath('/images/projects/raadhi/display.jpeg'),
+      assetPath('/images/projects/raadhi/identity.png'),
+      assetPath('/images/projects/raadhi/img-7675.jpg'),
+      assetPath('/images/projects/raadhi/img-7677.jpg'),
+      assetPath('/images/projects/raadhi/img-7683.jpg'),
+      assetPath('/images/projects/raadhi/img-7695.jpg'),
+      assetPath('/images/projects/raadhi/img-7697.jpg'),
+      assetPath('/images/projects/raadhi/img-7699.jpg'),
     ],
   },
 ];
@@ -134,7 +138,7 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <Router basename={routerBase}>
       <div className="site-shell">
         <div className="cursor-glow" style={{ '--x': `${cursor.x}px`, '--y': `${cursor.y}px` }} />
         <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
@@ -194,7 +198,7 @@ function Home() {
   return (
     <>
       <section className="hero">
-        <div className="hero-media" />
+        <div className="hero-media" style={{ backgroundImage: `url("${assetPath('/images/hero-interior.png')}")` }} />
         <div className="hero-overlay" />
         <div className="hero-content">
           <p className="eyebrow"><Sparkles size={16} /> Interior Design Graduate</p>
