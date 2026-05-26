@@ -71,10 +71,10 @@ const projects = [
     details: 'The loft-style bed, slide, decorative lighting, and study zones bring comfort, function, and imagination together in a modern kids space.',
     gallery: [
       '/images/projects/dream-nest/hero.jpeg',
-      '/images/projects/dream-nest/palette.jpg',
       '/images/projects/dream-nest/study.jpeg',
       '/images/projects/dream-nest/loft.jpeg',
       '/images/projects/dream-nest/bed.jpeg',
+      '/images/projects/dream-nest/palette.jpg',
     ],
   },
   {
@@ -304,14 +304,17 @@ function About({ isHome = false }) {
     <section className={isHome ? 'about-home about-layout' : 'page-section about-layout'}>
       <div className="page-heading">
         <span className="section-kicker">About Me</span>
-        <h1>Designing interiors that feel expressive, useful, and personal.</h1>
+        <h1>Transforming spaces into functional and aesthetically pleasing environments.</h1>
       </div>
       <div className="about-copy">
         <p>
-          Yashvi Girdhar is an interior design graduate with a love for layered palettes, material exploration, and spatial narratives that make a room feel both polished and human.
+          My name is Yashvi Girdhar, and I am a highly skilled and creative interior designer with a passion for transforming spaces into functional and aesthetically pleasing environments.
         </p>
         <p>
-          Her process begins with observation: how people enter, pause, gather, work, and unwind. From there, she develops concepts through moodboards, sketches, material combinations, and detailed layouts.
+          My design philosophy centers around creating spaces that are not only aesthetically pleasing but also functional and reflective of my clients' personalities and lifestyles. I believe that good design should enhance the way we live and work.
+        </p>
+        <p>
+          Having worked on a diverse range of projects, from luxury residential homes to commercial spaces, I understand the unique challenges and opportunities each type of space presents.
         </p>
       </div>
     </section>
